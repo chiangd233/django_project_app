@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import CreateView
-from django.views.generic import DetailView
+from django.views.generic import DetailView, UpdateView, CreateView
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 from .models import Workout
 
 # Create your views here.
@@ -38,3 +38,10 @@ class Workout_Create(CreateView):
 class Workout_Detail(DetailView):
     model = Workout
     template_name = "workout_detail.html"
+
+class Workout_Update(UpdateView):
+    model = Workout
+    fields = ['name', 'intensity', 'rounds', 'time', 'exercise']
+    template_name = "workout_create.html"
+    def get_success_url(self):
+        return reverse('park_detail', kwargs = {'pk': self.object.pk})
