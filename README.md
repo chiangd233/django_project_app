@@ -8,12 +8,15 @@ This app was created to encourage everyone to live a better lifestyle and get mo
 
 ## User Stories
 I want the user to be able to sign in under a username and password.<br>
-I want the user to be able to add a type of workout.<br>
+I want the user to be able to create an account to the workout app. <br>
+I want the user to be able to add a type of exercise if it is not in the database.<br>
 I want the user to create different workouts and save them.<br>
+I want the user to be able to see all their saved workouts on their profile page<br>
 I want the user to look up other workouts based on intensity and body part.<br>
 I want the user to be able to use a search function. <br>
 
 Extra: <br>
+I want the user to be able to search by intensity or body part <br>
 I want the user to generate multiple rounds with different exercises. <br>
 I want the user to be able to generate a new workout based on intensity and body part.
 
@@ -26,6 +29,7 @@ I want the user to be able to generate a new workout based on intensity and body
 ![Create/Edit Page](./ReadMePhotos/CreateWorkout.png)
 ![Add Exercise Page](./ReadMePhotos/AddExercise.png)
 ![Profile Page](./ReadMePhotos/ProfilePage.png)
+![Sign in/up Page](./ReadMePhotos/Signin.png)
 
 ## Technologies Used:
 Django
