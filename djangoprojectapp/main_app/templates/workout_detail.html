@@ -18,7 +18,7 @@
         {% endfor %}
     </div>
     <div>
-        <a href = "{% url 'workout_update' workout.pk%}">Update Workout</a>
-        <a href = "">Delete Workout</a>
+        <a href = "{% url 'workout_update' workout.pk %}">Update Workout</a>
+        <a href = "{% url 'workout_delete' workout.pk %}">Delete Workout</a>
     </div>
 {% endblock %}

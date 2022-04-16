@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
-from django.views.generic import DetailView, UpdateView, CreateView
+from django.views.generic import DetailView, UpdateView, CreateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import Workout
@@ -45,3 +45,8 @@ class Workout_Update(UpdateView):
     template_name = "workout_create.html"
     def get_success_url(self):
         return reverse('park_detail', kwargs = {'pk': self.object.pk})
+
+class Workout_Delete(DeleteView):
+    model = Workout
+    template_name = "workout_delete_confirm.html"
+    success_url = "/"
