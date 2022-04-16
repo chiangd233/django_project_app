@@ -14,13 +14,29 @@
 </head>
 <body>
     <nav>
-        <li>
-            <a href = "">Home</a>
-        </li>
-        <li>
-            <a href = "/about">About</a>
-        </li>
+        <div class = "nav">
+            <ul>
+                <a href = "{% url 'home' %}">Home</a>
+            </ul>
+            <ul>
+                <a href = "{% url 'about' %}">About</a>
+            </ul>
+        </div>
+        <div class = "nav">
+            <h1>GIT FIT NOW</h1>
+        </div>
+        <div class = "nav"></div>
+            <ul>
+                <a href = "{% url 'home' %}">Sign In</a>
+            </ul>
+        </div>
     </nav>
+    <form>
+        <div id = "search">
+            <input type = "text" name = "name" placeholder = "Search for a Workout"/>
+            <input type = "submit" value = "Search" />
+        </div>
+    </form>
     {% block body %}
     {% endblock %}
 </body>

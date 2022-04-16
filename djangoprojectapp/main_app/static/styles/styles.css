@@ -1,0 +1,18 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    background-color: grey;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row
+}
+
+#search{
+    display: flex;
+    justify-content: center;
+}

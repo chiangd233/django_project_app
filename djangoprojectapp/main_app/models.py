@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator
 
 # Create your models here.
 
@@ -31,7 +32,8 @@ BODY_CHOICES = (
 class Workout(models.Model):
     name = models.CharField(max_length = 50)
     intensity = models.CharField(max_length = 10, choices = INTENSITY_CHOICES)
-    rounds = models.IntegerField()
+    rounds = models.IntegerField(validators = [MinValueValidator(1)])
+    time = models.IntegerField(validators = [MinValueValidator(1)])
     # exercise = models.ManyToManyField(Exercise)
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

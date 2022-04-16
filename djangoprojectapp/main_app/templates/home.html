@@ -4,5 +4,13 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Home</h1>
+    <h2>Home</h2>
+    {% for workouts in workouts %}
+        <div class = "workout">
+            <h3>Name: {{workout.name}}</h3>
+            <h4>Created By: {{workouts.user.username}}</h4>
+            <h4>Intensity: {{workouts.intensity}}</h4>
+            <h4>Estimated Time to Complete: {{workouts.time}} minutes</h4>
+        </div>
+    {% endfor %}
 {% endblock %}
