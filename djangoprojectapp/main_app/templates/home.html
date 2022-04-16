@@ -7,8 +7,14 @@
     <h2>{{header}}</h3>
     {% for workouts in workouts %}
         <div class = "workout">
-            <h3>{{workouts.name}}</h3>
-            <p>Created By: {{workouts.user.username}}</p>
+            <a href = "{% url 'workout_detail' workouts.pk %}">
+                <h3>{{workouts.name}}</h3>
+        </a>
+            <p>Created By: 
+                <a href = '/user/{{workouts.user.username}}''>
+                {{workouts.user.username}}
+                </a>
+            </p>
             <p>Intensity: {{workouts.intensity}}</p>
             <p>Parts Worked: Legs</p>
             <p>Estimated Time to Complete: {{workouts.time}} minutes</p>

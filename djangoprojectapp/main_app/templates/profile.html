@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+    GIT FIT NOW
+{% endblock %}
+
+{% block body %}
+    <h1>{{username}}'s Workout Collection:</h1>
+    {% for workouts in workouts %} 
+    <div class = "workout">
+        <a href = "{% url 'workout_detail' workouts.pk %}">
+            <h3>{{workouts.name}}</h3>
+        </a>
+    </div>
+    {% endfor %}
+{% endblock %}
