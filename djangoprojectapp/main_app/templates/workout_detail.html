@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+    <div>
+        <h1>Details for {{workout.name}}</h1>
+    </div>
+    <div class = "workout">
+        <h3>{{workout.name}}</h3>
+        <p>Created By: {{workout.user.username}}</p>
+        <p>Intensity: {{workout.intensity}}</p>
+        <p>Parts Worked: Legs</p>
+        <p>Estimated Time to Complete: {{workout.time}} minutes</p>
+    </div>
+    <div class = "exercise">
+        {% for exercises in exercises %} 
+        <li></li>
+        {% endfor %}
+    </div>
+    <div>
+        <a href = "">Update Workout</a>
+        <a href = "">Delete Workout</a>
+    </div>
+{% endblock %}

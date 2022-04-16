@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
+from django.views.generic import DetailView
 from django.http import HttpResponseRedirect
 from .models import Workout
 
@@ -26,10 +27,14 @@ class About(TemplateView):
 class Workout_Create(CreateView):
     model = Workout
     fields = ['name', 'intensity', 'rounds', 'time', 'exercise']
-    template = "workout_create.html"
+    template_name = "workout_create.html"
 
     def form_valid(self, form):
         self.object = form.save(commit = False)
         self.object.user = self.request.user
         self.object.save()
         return HttpResponseRedirect('/')
+
+class Workout_Detail(DetailView):
+    model = Workout
+    template_name = "workout_detail.html"
