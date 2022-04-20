@@ -57,7 +57,7 @@ def profile(request, username):
     workouts = Workout.objects.filter(user = user)
     return render(request, 'profile.html', {'username': username, 'workouts': workouts})
 
-class Exercise(TemplateView):
+def Exercise_Index(request):
     exercise = Exercise.objects.all()
     return render(request, 'exercise.html', {'exercise': exercise})
 
