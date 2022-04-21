@@ -21,7 +21,7 @@ BODY_CHOICES = (
 
 class Exercise(models.Model):
     number = models.IntegerField()
-    exercise = models.CharField(max_length = 50)
+    name = models.CharField(max_length = 50)
     body = models.CharField(max_length = 10, choices = BODY_CHOICES)
 
     def __str__(self):

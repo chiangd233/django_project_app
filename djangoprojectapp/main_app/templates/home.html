@@ -16,7 +16,13 @@
                 </a>
             </p>
             <p>Intensity: {{workouts.intensity}}</p>
-            <p>Parts Worked: Legs</p>
+            <p>Parts Worked:
+                {% for part in workouts.exercise.all %}
+                {{part.body}}
+                {% empty %}
+                <p>Add exercises to show body parts worked.</p>
+                {% endfor %}
+            </p>
             <p>Estimated Time to Complete: {{workouts.time}} minutes</p>
         </div>
     {% endfor %}
