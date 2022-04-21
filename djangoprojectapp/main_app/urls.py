@@ -13,4 +13,7 @@ urlpatterns = [
     path('exercises/', views.Exercise_Index, name = "exercise"),
     path('exercises/create', views.Exercise_Create.as_view(), name = "exercise_create"),
     path('exercises/delete', views.Exercise_Delete.as_view(), name = "exercise_delete"),
+    path('login/', views.login_view, name = 'login'),
+    path('logout/', views.logout_view, name = 'logout'),
+    path('signup/', views.signup_view, name = 'signup'),
 ]

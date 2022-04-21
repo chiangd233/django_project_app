@@ -45,7 +45,7 @@ class Workout_Update(UpdateView):
     fields = ['name', 'intensity', 'rounds', 'time', 'exercise']
     template_name = "workout_create.html"
     def get_success_url(self):
-        return reverse('park_detail', kwargs = {'pk': self.object.pk})
+        return reverse('workout_detail', kwargs = {'pk': self.object.pk})
 
 class Workout_Delete(DeleteView):
     model = Workout
@@ -63,7 +63,7 @@ def Exercise_Index(request):
 
 class Exercise_Create(CreateView):
     model = Exercise
-    fields = ['number', 'exercise', 'body']
+    fields = ['number', 'name', 'body']
     template_name = "exercise_create.html"
 
     def form_valid(self, form):
