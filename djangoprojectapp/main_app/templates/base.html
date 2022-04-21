@@ -31,11 +31,25 @@
         <div class = "nav">
             <h1>GIT FIT NOW</h1>
         </div>
+        {% if user.is_authenticated %}
         <div class = "nav"></div>
             <ul>
-                <a href = "{% url 'home' %}">Sign In</a>
+                <a href = "/user/{{user.username}}">Hello, {{user.username}}</a>
+            </ul>
+            <ul>
+                <a href = "/accounts/logout"></a>Logout</a>
             </ul>
         </div>
+        {% else %}
+        <div class = "nav"></div>
+            <ul>
+                <a href = "{% url 'signup' %}">Sign Up</a>
+            </ul>
+            <ul>
+                <a href = "{% url 'login' %}">Sign In</a>
+            </ul>
+        </div>
+        {% endif %}
     </nav>
     <form>
         <div id = "search">
