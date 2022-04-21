@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.views.generic import DetailView, UpdateView, CreateView, DeleteView
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -76,3 +78,17 @@ class Exercise_Delete(DeleteView):
     model = Exercise
     template_name = "exercise_delete_confirm.html"
     success_url = "/"
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            print('HEY', user.username)
+            return HttpResponseRedirect('/user/'+str(user))
+        else:
+            return render(request, 'signup.html', {'form': form})    
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
