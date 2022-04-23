@@ -15,6 +15,7 @@
 <body>
     <nav>
         <div class = "nav">
+            {% if user.is_authenticated %}
             <ul>
                 <a href = "{% url 'home' %}">Home</a>
             </ul>
@@ -27,6 +28,14 @@
             <ul>
                 <a href = "{% url 'exercise_create' %}">Add an Exercise</a>
             </ul>
+            {% else %}
+            <ul>
+                <a href = "{% url 'home' %}">Home</a>
+            </ul>
+            <ul>
+                <a href = "{% url 'about' %}">About</a>
+            </ul>
+            {% endif %}
         </div>
         <div class = "nav">
             <h1>GIT FIT NOW</h1>
@@ -37,7 +46,7 @@
                 <a href = "/user/{{user.username}}">Hello, {{user.username}}</a>
             </ul>
             <ul>
-                <a href = "/accounts/logout"></a>Logout</a>
+                <a href = "{% url 'logout' %}"> Logout </a>
             </ul>
         </div>
         {% else %}
