@@ -3,13 +3,14 @@ nav {
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    background-color: grey;
+    background-color: green;
 }
+
 
 .nav {
     display: flex;
     justify-content: space-around;
-    flex-direction: row
+    flex-direction: row;
 }
 
 #search{
