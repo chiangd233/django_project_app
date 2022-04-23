@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+    GIT FIT NOW
+{% endblock %}
+
+{% block content %}
+
+<h1>Login</h1>
+{%print('hello world')%}
+<form method="post" action="{% url 'login' %}">
+  {% csrf_token %}
+  {{ form.as_p}}
+  <input type = "submit" value = "Log In" />
+  <input type = "hidden" name = "next" value = "{{ next }}" />
+</form>
+
+{% endblock %}

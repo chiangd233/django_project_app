@@ -3,6 +3,8 @@ from django.views.generic.base import TemplateView
 from django.views.generic import DetailView, UpdateView, CreateView, DeleteView
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -27,6 +29,7 @@ class Home(TemplateView):
 class About(TemplateView):
     template_name = "about.html"
 
+@method_decorator(login_required, name = 'dispatch')
 class Workout_Create(CreateView):
     model = Workout
     fields = ['name', 'intensity', 'rounds', 'time', 'exercise']
@@ -42,6 +45,7 @@ class Workout_Detail(DetailView):
     model = Workout
     template_name = "workout_detail.html"
 
+@method_decorator(login_required, name = 'dispatch')
 class Workout_Update(UpdateView):
     model = Workout
     fields = ['name', 'intensity', 'rounds', 'time', 'exercise']
@@ -49,11 +53,13 @@ class Workout_Update(UpdateView):
     def get_success_url(self):
         return reverse('workout_detail', kwargs = {'pk': self.object.pk})
 
+@method_decorator(login_required, name = 'dispatch')
 class Workout_Delete(DeleteView):
     model = Workout
     template_name = "workout_delete_confirm.html"
     success_url = "/"
 
+@login_required
 def profile(request, username):
     user = User.objects.get(username = username)
     workouts = Workout.objects.filter(user = user)
@@ -63,6 +69,7 @@ def Exercise_Index(request):
     exercise = Exercise.objects.all()
     return render(request, 'exercise.html', {'exercise': exercise})
 
+@method_decorator(login_required, name = 'dispatch')
 class Exercise_Create(CreateView):
     model = Exercise
     fields = ['number', 'name', 'body']
@@ -74,6 +81,7 @@ class Exercise_Create(CreateView):
         self.object.save()
         return HttpResponseRedirect('/')
 
+@method_decorator(login_required, name = 'dispatch')
 class Exercise_Delete(DeleteView):
     model = Exercise
     template_name = "exercise_delete_confirm.html"
@@ -91,31 +99,4 @@ def signup_view(request):
             return render(request, 'signup.html', {'form': form})    
     else:
         form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form})
-
-def logout_view(request):
-    logout(request)
-    return HttpResponseRedirect('/')
-
-def login_view(request):
-    if request.method == 'POST':
-        form = AuthenticationForm(request, request.POST)
-        if form.is_valid():
-            u = form.cleaned_data['username']
-            p = form.cleaned_data['password']
-            user = authenticate(username = u, password = p)
-            if user is not None:
-                if user.is_active:
-                    login(request, user)
-                    return HttpResponseRedirect('/user/'+u)
-                else:
-                    print('The account has been disabled.')
-                    return render(request, 'login.html', {'form': form})
-            else:
-                print('The username and/or password is incorrect.')
-                return render(request, 'login.html', {'form': form})
-        else: 
-            return render(request, 'signup.html', {'form': form})
-    else: 
-        form = AuthenticationForm()
-        return render(request, 'login.html', {'form': form})
+        return render(request, 'signup.html', {'form': form})
