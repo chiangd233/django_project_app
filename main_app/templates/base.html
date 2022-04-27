@@ -19,12 +19,12 @@
 </head>
 <body>
     <nav class = "row">
-        <div class = "four columns">
+        <div class = "twelve columns" id = "title">
             <h1>GIT FIT NOW</h1>
         </div>
     </nav>
     <nav class = "row">
-        <div class = "four columns">
+        <div class = "six columns">
             {% if user.is_authenticated %}
             <ul>
                 <a href = "{% url 'home' %}">Home</a>
@@ -47,10 +47,8 @@
             </ul>
             {% endif %}
         </div>
-
-
         {% if user.is_authenticated %}
-        <div class = "four columns" id = "nav"></div>
+        <div class = "six columns" id = "nav"></div>
             <ul>
                 <a href = "/user/{{user.username}}">Hello, {{user.username}}</a>
             </ul>
