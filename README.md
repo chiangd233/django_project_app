@@ -1,6 +1,16 @@
 # django_project_app
 
-# Application Name: 
+<!-- Table of Contents -->
+<details>
+    <summary>Table of Contents</summary>
+    <ol>
+        <li><a href = "#application-name">Application Name</a></li>
+        <li><a href = "#concept">Concept</a></li>
+        <li><a href = "#application-name">Application Name</a></li>
+    </ol>
+</details>
+
+## Application Name: 
 GIT FIT NOW
 
 ## Concept:
