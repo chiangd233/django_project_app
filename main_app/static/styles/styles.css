@@ -20,7 +20,6 @@ nav {
     flex-direction: row;
 }
 
-
 #button {
     display: flex;
     justify-content: center;
@@ -61,8 +60,4 @@ h1, h2, h3, h4, li {
     margin-top: 20px;
     border: 2px solid lightblue;
     border-radius: 25px;
-}
-
-.button {
-
 }
