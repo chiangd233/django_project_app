@@ -17,6 +17,7 @@
                 {% endfor %}
             </p>
             <p>Estimated Time to Complete: {{workout.time}} minutes</p>
+            <p>Number of Rounds: {{workout.rounds}}</p>
         </div>
         <div>
             {% for exercise in workout.exercise.all %}
