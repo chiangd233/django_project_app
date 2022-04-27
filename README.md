@@ -6,7 +6,12 @@
     <ol>
         <li><a href = "#application-name">Application Name</a></li>
         <li><a href = "#concept">Concept</a></li>
-        <li><a href = "#application-name">Application Name</a></li>
+        <li><a href = "#user-stories">User Stories</a></li>
+        <li><a href = "#entity-relationship-diagram">Entity Relationship Diagram</a></li>
+        <li><a href = "#wireframes">Wireframes</a></li>
+        <li><a href = "#technologies-used">Technologies Used</a></li>
+        <li><a href = "#additional-information">Additional Information</a></li>
+        <li><a href = "#app-demo">App Demo</a></li>
     </ol>
 </details>
 
@@ -47,14 +52,9 @@ Python
 HTML
 PostgreSQL
 
-## Approach:
-
-
-## Challenges:
-
-
 ## Additional information:
 Developed by Dominick
 
 ## App Demo
+https://workout-app-dom2.herokuapp.com/
 https://github.com/chiangd233/django_project_app/
