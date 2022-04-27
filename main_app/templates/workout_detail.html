@@ -36,7 +36,9 @@
             <a href = "{% url 'workout_update' workout.pk %}">
                 <input type = "button" value = "Update Workout">
             </a>
-            <a href = "{% url 'workout_delete' workout.pk %}">Delete Workout</a>
+            <a href = "{% url 'workout_delete' workout.pk %}">
+                <input type = "button" value = "Delete Workout">
+            </a>
             {% endif %}
             {% endif %}
         </div>
