@@ -49,7 +49,7 @@ class Workout_Detail(DetailView):
 class Workout_Update(UpdateView):
     model = Workout
     fields = ['name', 'intensity', 'rounds', 'time', 'exercise']
-    template_name = "workout_create.html"
+    template_name = "workout_update.html"
     def get_success_url(self):
         return reverse('workout_detail', kwargs = {'pk': self.object.pk})
 

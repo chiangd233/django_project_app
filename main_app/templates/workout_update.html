@@ -5,7 +5,7 @@
 
 {% block body %}
     <div class = "container" id = "forms">
-        <h1>Create a Workout</h1>
+        <h1>Update {{workout.name}}</h1>
         <form method = "post">
             {% csrf_token %}
             {{form.as_p}}

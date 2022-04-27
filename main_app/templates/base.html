@@ -19,62 +19,74 @@
 </head>
 <body>
     <nav class = "row">
-        <div class = "four columns">
+        <div class = "twelve columns" id = "title">
             <h1>GIT FIT NOW</h1>
         </div>
     </nav>
     <nav class = "row">
-        <div class = "four columns">
+        <div class = "six columns" id = "nav-left">
             {% if user.is_authenticated %}
-            <ul>
-                <a href = "{% url 'home' %}">Home</a>
+            <ul class = "two columns" id = "button">
+                <a href = "{% url 'home' %}">
+                    <input type = "button" value = "Home">
+                </a>
             </ul>
-            <ul>
-                <a href = "{% url 'about' %}">About</a>
+            <ul class = "two columns" id = "button">
+                <a href = "{% url 'about' %}">
+                    <input type = "button" value = "About">
+                </a>
             </ul>
-            <ul>
-                <a href = "{% url 'workout_create' %}">Create a Workout</a>
+            <ul class = "four columns" id = "button"> 
+                <a href = "{% url 'workout_create' %}">
+                    <input type = "button" value = "Create a Workout">
+                    </a>
             </ul>
-            <ul>
-                <a href = "{% url 'exercise_create' %}">Add an Exercise</a>
+            <ul class = "four columns" id = "button">
+                <a href = "{% url 'exercise_create' %}">
+                    <input type = "button" value = "Add an Exercise">
+                </a>
             </ul>
             {% else %}
-            <ul>
-                <a href = "{% url 'home' %}">Home</a>
+            <ul class = "two columns" id = "button">
+                <a href = "{% url 'home' %}">
+                    <input type = "button" value = "Home">
+                </a>
             </ul>
-            <ul>
-                <a href = "{% url 'about' %}">About</a>
+            <ul class = "two columns" id = "button">
+                <a href = "{% url 'about' %}">
+                    <input type = "button" value = "About">
+                </a>
+            </ul>
+            <ul class = "eight columns" ></ul>
+            {% endif %}
+        </div>
+        
+        <div class = "six columns" id = "nav-right">
+            {% if user.is_authenticated %}
+            <ul class = "five columns" id = "button">
+                <a href = "/user/{{user.username}}">
+                    <input type = "button" value = "Hello, {{user.username}}">
+                </a>
+            </ul>
+            <ul class = "three columns" id = "button">
+                <a href = "{% url 'logout' %}"> 
+                    <input type = "button" value = "Logout">
+                 </a>
+            </ul>
+            {% else %}
+            <ul class = "three columns" id = "button">
+                <a href = "{% url 'signup' %}">
+                    <input type = "button" value = "Sign Up">
+                </a>
+            </ul>
+            <ul class = "three columns" id = "button">
+                <a href = "{% url 'login' %}">
+                    <input type = "button" value = "Sign In">
+                </a>
             </ul>
             {% endif %}
         </div>
-
-
-        {% if user.is_authenticated %}
-        <div class = "four columns" id = "nav"></div>
-            <ul>
-                <a href = "/user/{{user.username}}">Hello, {{user.username}}</a>
-            </ul>
-            <ul>
-                <a href = "{% url 'logout' %}"> Logout </a>
-            </ul>
-        </div>
-        {% else %}
-        <div class = "four columns"></div>
-            <ul>
-                <a href = "{% url 'signup' %}">Sign Up</a>
-            </ul>
-            <ul>
-                <a href = "{% url 'login' %}">Sign In</a>
-            </ul>
-        </div>
-        {% endif %}
     </nav>
-    <form>
-        <div id = "search">
-            <input type = "text" name = "name" placeholder = "Search for a Workout"/>
-            <input type = "submit" value = "Search" />
-        </div>
-    </form>
     {% block body %}
     {% endblock %}
 </body>
