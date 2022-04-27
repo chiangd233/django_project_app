@@ -102,5 +102,3 @@ def signup_view(request):
         form = UserCreationForm()
         return render(request, 'signup.html', {'form': form})
 
-def email(request):
-    return redirect("http://www.gmail.com")
