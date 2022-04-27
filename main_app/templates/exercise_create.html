@@ -4,10 +4,12 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Add an Exercise</h1>
-    <form method = "post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type = "submit" value = "Submit" />
-    </form>
+    <div class = "container" id = "forms">
+        <h3>Add an Exercise</h3>
+        <form method = "post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type = "submit" value = "Submit" />
+        </form>
+    </div>
 {% endblock %}
