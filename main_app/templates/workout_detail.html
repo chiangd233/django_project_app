@@ -32,8 +32,10 @@
         </div>
         <div>
             {% if user.is_authenticated %}
+            {% if user == workout.user %}
             <a href = "{% url 'workout_update' workout.pk %}">Update Workout</a>
             <a href = "{% url 'workout_delete' workout.pk %}">Delete Workout</a>
+            {% endif %}
             {% endif %}
         </div>
     </div>
