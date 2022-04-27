@@ -25,9 +25,24 @@ nav {
     justify-content: center;
     align-items: center;
     font-size: 16px;
-    background-color: red;
-    padding: 16px 16px;
+    padding: 6px 16px;
+}
 
+.container {
+    position: relative;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+#workout {
+    border: 2px solid blue;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 2px !important;
+    padding: 0;
 }
 
 #search{

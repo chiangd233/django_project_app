@@ -4,26 +4,34 @@
 {% endblock %}
 
 {% block body %}
-    <h2>{{header}}</h3>
-    {% for workouts in workouts %}
-        <div class = "workout">
-            <a href = "{% url 'workout_detail' workouts.pk %}">
-                <h3>{{workouts.name}}</h3>
-        </a>
-            <p>Created By: 
-                <a href = '/user/{{workouts.user.username}}''>
-                {{workouts.user.username}}
+    <div class = "container">
+        <form>
+            <div class = "twelve columns" id = "search">
+                <input type = "text" name = "name" placeholder = "Search for a Workout"/>
+                <input type = "submit" value = "Search" />
+            </div>
+        </form>
+        <h2 class = "eight columns offset-by-two">{{header}}</h3>
+        {% for workouts in workouts %}
+            <div class = "eight columns offset-by-two" id = "workout">
+                <a href = "{% url 'workout_detail' workouts.pk %}">
+                    <h4>{{workouts.name}}</h3>
                 </a>
-            </p>
-            <p>Intensity: {{workouts.intensity}}</p>
-            <p>Parts Worked:
-                {% for part in workouts.exercise.all %}
-                {{part.body}}
-                {% empty %}
-                <p>Add exercises to show body parts worked.</p>
-                {% endfor %}
-            </p>
-            <p>Estimated Time to Complete: {{workouts.time}} minutes</p>
-        </div>
-    {% endfor %}
+                <p>Created By: 
+                    <a href = '/user/{{workouts.user.username}}''>
+                    {{workouts.user.username}}
+                    </a>
+                </p>
+                <p>Intensity: {{workouts.intensity}}</p>
+                <p>Parts Worked:
+                    {% for part in workouts.exercise.all %}
+                    {{part.body}}
+                    {% empty %}
+                    <p>Add exercises to show body parts worked.</p>
+                    {% endfor %}
+                </p>
+                <p>Estimated Time to Complete: {{workouts.time}} minutes</p>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

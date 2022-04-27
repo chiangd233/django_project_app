@@ -39,7 +39,6 @@
                 <a href = "{% url 'exercise_create' %}">Add an Exercise</a>
             </ul>
             {% else %}
-           
             <ul class = "two columns" id = "button">
                 <a href = "{% url 'home' %}">Home</a>
             </ul>
@@ -68,12 +67,6 @@
             {% endif %}
         </div>
     </nav>
-    <form>
-        <div class = "twelve columns" id = "search">
-            <input type = "text" name = "name" placeholder = "Search for a Workout"/>
-            <input type = "submit" value = "Search" />
-        </div>
-    </form>
     {% block body %}
     {% endblock %}
 </body>
