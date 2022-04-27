@@ -24,48 +24,49 @@
         </div>
     </nav>
     <nav class = "row">
-        <div class = "six columns">
+        <div class = "six columns" id = "nav-left">
             {% if user.is_authenticated %}
-            <ul>
+            <ul class = "two columns" id = "button">
                 <a href = "{% url 'home' %}">Home</a>
             </ul>
-            <ul>
+            <ul class = "two columns" id = "button">
                 <a href = "{% url 'about' %}">About</a>
             </ul>
-            <ul>
+            <ul class = "four columns" id = "button"> 
                 <a href = "{% url 'workout_create' %}">Create a Workout</a>
             </ul>
-            <ul>
+            <ul class = "four columns" id = "button">
                 <a href = "{% url 'exercise_create' %}">Add an Exercise</a>
             </ul>
             {% else %}
-            <ul>
+           
+            <ul class = "two columns" id = "button">
                 <a href = "{% url 'home' %}">Home</a>
             </ul>
-            <ul>
+            <ul class = "two columns" id = "button">
                 <a href = "{% url 'about' %}">About</a>
+            </ul>
+            <ul class = "eight columns" ></ul>
+            {% endif %}
+        </div>
+        
+        <div class = "six columns" id = "nav-right">
+            {% if user.is_authenticated %}
+            <ul class = "five columns" id = "button">
+                <a href = "/user/{{user.username}}">Hello, {{user.username}}</a>
+            </ul>
+            <ul class = "three columns" id = "button">
+                <a href = "{% url 'logout' %}"> Logout </a>
+            </ul>
+            {% else %}
+            <ul class = "three columns" id = "button">
+                <a href = "{% url 'signup' %}">Sign Up</a>
+            </ul>
+            <ul class = "three columns" id = "button">
+                <a href = "{% url 'login' %}">Sign In</a>
             </ul>
             {% endif %}
         </div>
-        {% if user.is_authenticated %}
-        <div class = "six columns" id = "nav"></div>
-            <ul>
-                <a href = "/user/{{user.username}}">Hello, {{user.username}}</a>
-            </ul>
-            <ul>
-                <a href = "{% url 'logout' %}"> Logout </a>
-            </ul>
-        </div>
-        {% else %}
-        <div class = "four columns"></div>
-            <ul>
-                <a href = "{% url 'signup' %}">Sign Up</a>
-            </ul>
-            <ul>
-                <a href = "{% url 'login' %}">Sign In</a>
-            </ul>
-        </div>
-        {% endif %}
     </nav>
     <form>
         <div id = "search">
