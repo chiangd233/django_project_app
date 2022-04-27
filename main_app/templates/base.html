@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
     <link rel = "stylesheet" href = "{% static 'styles/styles.css' %}" />
+    <link rel = "stylesheet" href = "{% static 'styles/normalize.css' %}" />
+    <link rel = "stylesheet" href = "{% static 'styles/skeleton.css' %}" />
     <script src = "{% static 'scripts/app.js' %}" defer></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,8 +18,13 @@
     </title>
 </head>
 <body>
-    <nav>
-        <div class = "nav">
+    <nav class = "row">
+        <div class = "four columns">
+            <h1>GIT FIT NOW</h1>
+        </div>
+    </nav>
+    <nav class = "row">
+        <div class = "four columns">
             {% if user.is_authenticated %}
             <ul>
                 <a href = "{% url 'home' %}">Home</a>
@@ -41,12 +48,9 @@
             {% endif %}
         </div>
 
-        <div class = "nav" id = "title">
-            <h1>GIT FIT NOW</h1>
-        </div>
 
         {% if user.is_authenticated %}
-        <div class = "nav"></div>
+        <div class = "four columns" id = "nav"></div>
             <ul>
                 <a href = "/user/{{user.username}}">Hello, {{user.username}}</a>
             </ul>
@@ -55,7 +59,7 @@
             </ul>
         </div>
         {% else %}
-        <div class = "nav"></div>
+        <div class = "four columns"></div>
             <ul>
                 <a href = "{% url 'signup' %}">Sign Up</a>
             </ul>
