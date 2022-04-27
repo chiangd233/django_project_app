@@ -56,9 +56,9 @@ I want the user to be able to generate a new workout based on intensity and body
 
 
 ## Additional information:
-Developed by Dominick
+Developed by Dominick <br>
 Linkedin: https://www.linkedin.com/in/dominick-chiang-e-i-t-30751182/
 
 ## App Demo
 https://workout-app-dom2.herokuapp.com/
-https://github.com/chiangd233/django_project_app/*
+https://github.com/chiangd233/django_project_app/
