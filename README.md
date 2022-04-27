@@ -48,9 +48,12 @@ I want the user to be able to generate a new workout based on intensity and body
 
 ## Technologies Used:
 * [Django](http://djangoproject.com)
-Python
-HTML
-PostgreSQL
+* [Python](http://python.org)
+* [Javascript](https://www.javascript.com/)
+* [PostgreSQL](https://www.postgresql.org/)
+* [CSS](https://en.wikipedia.org/wiki/CSS)
+* [HTML](https://www.w3schools.com/html/)
+
 
 ## Additional information:
 Developed by Dominick
