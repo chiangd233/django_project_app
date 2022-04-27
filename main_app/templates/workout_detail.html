@@ -2,37 +2,38 @@
 
 
 {% block body %}
-    <div>
-        <h1>Details for {{workout.name}}</h1>
-    </div>
-    <div class = "workout">
-        <h3>{{workout.name}}</h3>
-        <p>Created By: {{workout.user.username}}</p>
-        <p>Intensity: {{workout.intensity}}</p>
-        <p>Body Parts Worked:
-            {% for part in workout.exercise.all %}
-            {{part.body}}
+    <div class = "container" id = "form">
+        <div>
+            <h1>Details for {{workout.name}}</h1>
+        </div>
+        <div class = "workout">
+            <p>Created By: {{workout.user.username}}</p>
+            <p>Intensity: {{workout.intensity}}</p>
+            <p>Body Parts Worked:
+                {% for part in workout.exercise.all %}
+                {{part.body}}
+                {% empty %}
+                <p>Add exercises to show body parts worked.</p>
+                {% endfor %}
+            </p>
+            <p>Estimated Time to Complete: {{workout.time}} minutes</p>
+        </div>
+        <div>
+            {% for exercise in workout.exercise.all %}
+            <li>{{exercise.number}}x {{exercise.name}}</li>
             {% empty %}
-            <p>Add exercises to show body parts worked.</p>
+            <p>Exercises have not been added to this workout yet.</p>
             {% endfor %}
-        </p>
-        <p>Estimated Time to Complete: {{workout.time}} minutes</p>
-    </div>
-    <div>
-        {% for exercise in workout.exercise.all %}
-        <li>{{exercise.number}}x {{exercise.name}}</li>
-        {% empty %}
-        <p>Exercises have not been added to this workout yet.</p>
-        {% endfor %}
-    </div>
-    <div class = "exercise">
-        {% for exercises in exercises %} 
-        <li></li>
-        {% endfor %}
-    </div>
-    <div>
-        <a href = "{% url 'workout_update' workout.pk %}">Update Workout</a>
-        <a href = "{% url 'workout_delete' workout.pk %}">Delete Workout</a>
+        </div>
+        <div class = "exercise">
+            {% for exercises in exercises %} 
+            <li></li>
+            {% endfor %}
+        </div>
+        <div>
+            <a href = "{% url 'workout_update' workout.pk %}">Update Workout</a>
+            <a href = "{% url 'workout_delete' workout.pk %}">Delete Workout</a>
+        </div>
     </div>
 {% endblock %}
 

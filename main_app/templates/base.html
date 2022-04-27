@@ -27,23 +27,35 @@
         <div class = "six columns" id = "nav-left">
             {% if user.is_authenticated %}
             <ul class = "two columns" id = "button">
-                <a href = "{% url 'home' %}">Home</a>
+                <a href = "{% url 'home' %}">
+                    <input type = "button" value = "Home">
+                </a>
             </ul>
             <ul class = "two columns" id = "button">
-                <a href = "{% url 'about' %}">About</a>
+                <a href = "{% url 'about' %}">
+                    <input type = "button" value = "About">
+                </a>
             </ul>
             <ul class = "four columns" id = "button"> 
-                <a href = "{% url 'workout_create' %}">Create a Workout</a>
+                <a href = "{% url 'workout_create' %}">
+                    <input type = "button" value = "Create a Workout">
+                    </a>
             </ul>
             <ul class = "four columns" id = "button">
-                <a href = "{% url 'exercise_create' %}">Add an Exercise</a>
+                <a href = "{% url 'exercise_create' %}">
+                    <input type = "button" value = "Add an Exercise">
+                </a>
             </ul>
             {% else %}
             <ul class = "two columns" id = "button">
-                <a href = "{% url 'home' %}">Home</a>
+                <a href = "{% url 'home' %}">
+                    <input type = "button" value = "Home">
+                </a>
             </ul>
             <ul class = "two columns" id = "button">
-                <a href = "{% url 'about' %}">About</a>
+                <a href = "{% url 'about' %}">
+                    <input type = "button" value = "About">
+                </a>
             </ul>
             <ul class = "eight columns" ></ul>
             {% endif %}
@@ -52,17 +64,25 @@
         <div class = "six columns" id = "nav-right">
             {% if user.is_authenticated %}
             <ul class = "five columns" id = "button">
-                <a href = "/user/{{user.username}}">Hello, {{user.username}}</a>
+                <a href = "/user/{{user.username}}">
+                    <input type = "button" value = "Hello, {{user.username}}">
+                </a>
             </ul>
             <ul class = "three columns" id = "button">
-                <a href = "{% url 'logout' %}"> Logout </a>
+                <a href = "{% url 'logout' %}"> 
+                    <input type = "button" value = "Logout">
+                 </a>
             </ul>
             {% else %}
             <ul class = "three columns" id = "button">
-                <a href = "{% url 'signup' %}">Sign Up</a>
+                <a href = "{% url 'signup' %}">
+                    <input type = "button" value = "Sign Up">
+                </a>
             </ul>
             <ul class = "three columns" id = "button">
-                <a href = "{% url 'login' %}">Sign In</a>
+                <a href = "{% url 'login' %}">
+                    <input type = "button" value = "Sign In">
+                </a>
             </ul>
             {% endif %}
         </div>

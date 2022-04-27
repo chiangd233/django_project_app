@@ -1,5 +1,5 @@
 nav {
-    background-color: blue;
+    background-color: lightblue;
 }
 
 #title {
@@ -20,6 +20,7 @@ nav {
     flex-direction: row;
 }
 
+
 #button {
     display: flex;
     justify-content: center;
@@ -35,14 +36,19 @@ nav {
 }
 
 #workout {
-    border: 2px solid blue;
+    border: 2px solid lightblue;
     border-radius: 10px;
     margin-bottom: 10px;
 }
 
 p {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin-bottom: 2px !important;
     padding: 0;
+}
+
+h1, h2, h3, h4, li {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #search{
@@ -53,10 +59,10 @@ p {
 
 #forms {
     margin-top: 20px;
-    border: 2px solid blue;
+    border: 2px solid lightblue;
     border-radius: 25px;
 }
 
 .button {
-    
+
 }
