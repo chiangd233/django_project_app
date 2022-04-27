@@ -9,6 +9,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.models import User
 from .models import Workout, Exercise
+from django.shortcuts import redirect
 
 # Create your views here.
 
@@ -100,3 +101,6 @@ def signup_view(request):
     else:
         form = UserCreationForm()
         return render(request, 'signup.html', {'form': form})
+
+def email(request):
+    return redirect("http://www.gmail.com")
